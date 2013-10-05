@@ -2,6 +2,7 @@
 
 [![Build Status](https://api.travis-ci.org/neighborland/mobu.png)](https://travis-ci.org/neighborland/mobu)
 [![Code Climate](https://codeclimate.com/github/neighborland/mobu.png)](https://codeclimate.com/github/neighborland/mobu)
+[![Gem Version](https://badge.fury.io/rb/mobu.png)](http://badge.fury.io/rb/mobu)
 
 Mobu provides a Rails controller concern called DetectMobile.
 Mobu does server-side User Agent detection to categorize requests as mobile, tablet, or default.
