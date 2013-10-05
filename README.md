@@ -34,20 +34,19 @@ mkdir app/views_tablet
 
 Put the view/partial files that you want to override in the appropriate directories.
 
-To allow mobile users to switch to the full site view, add a link to a mobile view:
+When you receive a mobile request, your app will first look for view files in `app/views_mobile`
+directory, then in `app/views`.
 
-```sh
-app/views_mobile/_footer.haml
-```
+To allow mobile users to switch to the full site view, add a link to a mobile view. For example:
+
+##### app/views_mobile/_footer.haml
 ```haml
 = link_to("View Full Site", prefer_full_site_url)
 ```
 
-To allow full site users to switch to the mobile view, add a link to a default view:
+To allow full site users to switch to the mobile view, add a link to a default view. For example:
 
-```sh
-app/views_mobile/_footer.haml
-```
+##### app/views_mobile/_footer.haml
 ```haml
 - if mobile_browser?
   = link_to("View Mobile Site", prefer_mobile_site_url)
@@ -55,8 +54,8 @@ app/views_mobile/_footer.haml
 
 ## Credits
 
-The view path modification techinique was taken from Scott W. Bradley's post
-[here](http://scottwb.com/blog/2012/02/23/a-better-way-to-add-mobile-pages-to-a-rails-site/)
+The view path modification technique was taken from 
+[this post by Scott W. Bradley](http://scottwb.com/blog/2012/02/23/a-better-way-to-add-mobile-pages-to-a-rails-site/).
 
-A similar project is Brendan Lim's [mobile-fu](https://github.com/brendanlim/mobile-fu)
-
+The user agent regex came from a similar project, Brendan Lim's 
+[mobile-fu](https://github.com/brendanlim/mobile-fu).
