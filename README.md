@@ -1,5 +1,7 @@
 # Moby
 
+[![Build Status](https://api.travis-ci.org/neighborland/moby.png)](https://travis-ci.org/neighborland/moby)
+
 Moby provides a Rails controller concern called DetectMobile.
 Moby does server-side User Agent detection to categorize requests as mobile, tablet, or default.
 Moby modifies your rails view paths based on the request type.
