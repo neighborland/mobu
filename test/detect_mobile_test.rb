@@ -1,13 +1,11 @@
 require 'test_helper'
 require 'active_support/concern'
-
-
 require 'active_support/core_ext/object/to_param'
 require 'active_support/core_ext/object/to_query'
 require 'rack/utils'
 require 'uri'
 
-class MobyFake
+class MobuFake
   class << self
     def before_filter(*args) end
     def helper_method(*methods) end
@@ -17,7 +15,7 @@ class MobyFake
     {}
   end
 
-  include Moby::DetectMobile
+  include Mobu::DetectMobile
 end
 
 class Rails
@@ -26,7 +24,7 @@ class Rails
   end
 end
 
-class MobyTest < Test::Unit::TestCase
+class MobuTest < Test::Unit::TestCase
 
   IPAD_USER_AGENT = "Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B334b Safari/531.21.10"
   IPHONE_USER_AGENT = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5"
@@ -36,7 +34,7 @@ class MobyTest < Test::Unit::TestCase
     setup do
       @request = mock
       @session = MockCookies.new
-      @controller = MobyFake.new
+      @controller = MobuFake.new
       @controller.stubs session: @session
       @controller.stubs request: @request
     end
@@ -139,12 +137,12 @@ class MobyTest < Test::Unit::TestCase
   end
 
 private
-  
+
   def expect_mobile_views
     @controller.expects(:mobile_views_path).returns("mobile_views_path").once
     @controller.expects(:prepend_view_path).with("mobile_views_path")
   end
-  
+
   def expect_tablet_views
     @controller.expects(:tablet_views_path).returns("tablet_views_path").once
     @controller.expects(:prepend_view_path).with("tablet_views_path")

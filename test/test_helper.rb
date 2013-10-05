@@ -1,7 +1,7 @@
 require 'test/unit'
 require 'shoulda-context'
 require 'mocha/setup'
-require 'moby'
+require 'mobu'
 
 class MockCookies < Hash
   attr_accessor :permanent

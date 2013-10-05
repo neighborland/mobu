@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'moby/version'
+require 'mobu/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "moby"
-  spec.version       = Moby::VERSION
+  spec.name          = "Mobu"
+  spec.version       = Mobu::VERSION
   spec.authors       = ["Tee Parham"]
   spec.email         = ["tee@neighborland.com"]
   spec.description   = %q{Rails User Agent Dependent View Paths}
   spec.summary       = %q{Rails server-side User Agent detection, plus view path modifications.}
-  spec.homepage      = "https://github.com/neighborland/moby"
+  spec.homepage      = "https://github.com/neighborland/mobu"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

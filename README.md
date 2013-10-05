@@ -1,25 +1,25 @@
-# Moby
+# Mobu
 
-[![Build Status](https://api.travis-ci.org/neighborland/moby.png)](https://travis-ci.org/neighborland/moby)
-[![Code Climate](https://codeclimate.com/github/neighborland/moby.png)](https://codeclimate.com/github/neighborland/moby)
+[![Build Status](https://api.travis-ci.org/neighborland/mobu.png)](https://travis-ci.org/neighborland/mobu)
+[![Code Climate](https://codeclimate.com/github/neighborland/mobu.png)](https://codeclimate.com/github/neighborland/mobu)
 
-Moby provides a Rails controller concern called DetectMobile.
-Moby does server-side User Agent detection to categorize requests as mobile, tablet, or default.
-Moby modifies your rails view paths based on the request type.
+Mobu provides a Rails controller concern called DetectMobile.
+Mobu does server-side User Agent detection to categorize requests as mobile, tablet, or default.
+Mobu modifies your rails view paths based on the request type.
 
 ## Install
 
 Add this line to your Gemfile:
 
 ```ruby
-gem 'moby'
+gem 'mobu'
 ```
 
 Include the module in your ApplicationController:
 
 ```ruby
 class ApplicationController
-  include Moby::DetectMobile
+  include Mobu::DetectMobile
 ```
 
 Create directories for `views_mobile` and `views_tablet`:

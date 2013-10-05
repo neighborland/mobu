@@ -4,7 +4,7 @@ require 'active_support/core_ext/object/to_query'
 require 'rack/utils'
 require 'uri'
 
-module Moby
+module Mobu
   module DetectMobile
     extend ActiveSupport::Concern
 
