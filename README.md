@@ -37,6 +37,16 @@ Put the view/partial files that you want to override in the appropriate director
 When you receive a mobile request, your app will first look for view files in `app/views_mobile`
 directory, then in `app/views`.
 
+Alternately, you can switch your rendering logic using the `mobile_request?` and `tablet_request?` helper methods
+in your view files or helpers:
+
+```haml
+- if mobile_request?
+  .small-thing Short Text
+- else
+  .regular-thing Much Longer Text
+```
+
 To allow mobile users to switch to the full site view, add a link to a mobile view. For example:
 
 ##### app/views_mobile/_footer.haml
