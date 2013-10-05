@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'mobu/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "Mobu"
+  spec.name          = "mobu"
   spec.version       = Mobu::VERSION
   spec.authors       = ["Tee Parham"]
   spec.email         = ["tee@neighborland.com"]
