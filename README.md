@@ -1,29 +1,59 @@
 # Moby
 
-TODO: Write a gem description
+Moby provides a Rails controller concern called DetectMobile.
+Moby does server-side User Agent detection to categorize requests as mobile, tablet, or default.
+Moby modifies your rails view paths based on the request type.
 
-## Installation
+## Install
 
-Add this line to your application's Gemfile:
+Add this line to your Gemfile:
 
+    ```ruby
     gem 'moby'
+    ```
 
-And then execute:
+Include the module in your ApplicationController:
 
-    $ bundle
+    ```ruby
+    class ApplicationController
+      include Moby::DetectMobile
+    ```
 
-Or install it yourself as:
+Create directories for `views_mobile` and `views_tablet`:
 
-    $ gem install moby
+    ```sh
+    mkdir app/views_mobile
+    mkdir app/views_tablet
+    ```
 
 ## Usage
 
-TODO: Write usage instructions here
+Put the view/partial files that you want to override in the appropriate directories.
 
-## Contributing
+To allow mobile users to switch to the full site view, add a link to a mobile view:
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+    ```sh
+    app/views_mobile/_footer.haml
+    ```
+    ```haml
+    = link_to("View Full Site", prefer_full_site_url)
+    ```
+
+To allow full site users to switch to the mobile view, add a link to a default view:
+
+    ```sh
+    app/views_mobile/_footer.haml
+    ```
+    ```haml
+    - if mobile_browser?
+      = link_to("View Mobile Site", prefer_mobile_site_url)
+    ```
+
+
+## Credits
+
+The view path modification techinique was taken from Scott W. Bradley's post
+[here](http://scottwb.com/blog/2012/02/23/a-better-way-to-add-mobile-pages-to-a-rails-site/)
+
+A similar project is Brendan Lim's [mobile-fu](https://github.com/brendanlim/mobile-fu)
+
