@@ -7,7 +7,9 @@
 
 Mobu provides a Rails controller concern called DetectMobile.
 Mobu does server-side User Agent detection to categorize requests as mobile, tablet, or default.
+
 Mobu modifies your rails view paths based on the request type.
+It does not require custom MIME types or separate subdomains.
 
 ## Install
 
