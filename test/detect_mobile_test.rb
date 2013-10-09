@@ -1,9 +1,4 @@
 require 'test_helper'
-require 'active_support/concern'
-require 'active_support/core_ext/object/to_param'
-require 'active_support/core_ext/object/to_query'
-require 'rack/utils'
-require 'uri'
 
 class MobuFake
   class << self
@@ -19,9 +14,6 @@ class MobuFake
 end
 
 class Rails
-  def self.root
-    Pathname.new("LIB_ROOT/..")
-  end
 end
 
 class MobuTest < Test::Unit::TestCase
@@ -46,7 +38,6 @@ class MobuTest < Test::Unit::TestCase
       @controller.stubs mobile_browser?: true # should ignore
       refute @controller.send :mobile_request?
     end
-
 
     should "detect tablet and not detect mobile for iPad user agent" do
       @request.stubs user_agent: IPAD_USER_AGENT
@@ -78,6 +69,12 @@ class MobuTest < Test::Unit::TestCase
         expect_no_tablet_views
         @controller.send :check_mobile_site
       end
+      
+      should "set session cookie to prefer full site with full site preference" do
+        @controller.stubs params: {prefer: "f"}
+        @controller.send :check_mobile_site
+        assert_equal 1, @session[:prefer_full_site]
+      end      
     end
 
     context "with tablet user agent" do
@@ -134,8 +131,26 @@ class MobuTest < Test::Unit::TestCase
         assert_equal "https://neighborland.com/xyz?prefer=m", @controller.send(:prefer_mobile_site_url)
       end
     end
-  end
 
+    context "with fake Rails" do
+      setup do
+        Rails.stubs root: Pathname.new("/home/snoop/yer_app/")        
+      end
+      
+      context "#mobile_views_path" do
+        should "build path" do
+          assert_equal "/home/snoop/yer_app/app/views_mobile", @controller.send(:mobile_views_path).to_s
+        end
+      end
+
+      context "#tablet_views_path" do
+        should "build path" do
+          assert_equal "/home/snoop/yer_app/app/views_tablet", @controller.send(:tablet_views_path).to_s
+        end    
+      end          
+    end
+  end
+  
 private
 
   def expect_mobile_views
