@@ -1,8 +1,8 @@
 # Mobu
 
+[![Gem Version](https://badge.fury.io/rb/mobu.png)](http://badge.fury.io/rb/mobu)
 [![Build Status](https://api.travis-ci.org/neighborland/mobu.png)](https://travis-ci.org/neighborland/mobu)
 [![Code Climate](https://codeclimate.com/github/neighborland/mobu.png)](https://codeclimate.com/github/neighborland/mobu)
-[![Gem Version](https://badge.fury.io/rb/mobu.png)](http://badge.fury.io/rb/mobu)
 [![Coverage Status](https://coveralls.io/repos/neighborland/mobu/badge.png)](https://coveralls.io/r/neighborland/mobu)
 
 Mobu provides a Rails controller concern called DetectMobile.
