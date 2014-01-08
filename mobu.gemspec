@@ -26,7 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "mocha", "~> 0.14"
   spec.add_development_dependency "shoulda-context", "~> 1.1"
 
-  spec.add_runtime_dependency "rack", "~> 1.4"
-  spec.add_runtime_dependency "activesupport", ">= 3.2"
-  spec.add_runtime_dependency "actionpack", ">= 3.2"
+  spec.add_dependency "rack", "~> 1.4"
+  spec.add_dependency "actionpack", ">= 3.2"
 end
