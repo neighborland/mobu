@@ -11,6 +11,11 @@ Mobu does server-side User Agent detection to categorize requests as mobile, tab
 Mobu modifies your rails view paths based on the request type.
 It does not require custom MIME types or separate subdomains.
 
+_Disclaimer: It is rarely a good idea to use User Agent detection to render different HTML content. 
+Please read this first:_
+
+https://developer.mozilla.org/en-US/docs/Browser_detection_using_the_user_agent
+
 ## Install
 
 Add this line to your Gemfile:
